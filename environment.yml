@@ -9,11 +9,13 @@ dependencies:
   - pip
   - tqdm
   - numpy
+  - nvidia-apex
   - scipy
   - python=3.8
   - pytorch
   - pytorch-cuda=11.7
   - huggingface_hub
+  - huggingface_accelerate
   - transformers=4.23.1
   - pip:
     - truecase
