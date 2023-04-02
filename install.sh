@@ -55,7 +55,7 @@ rm ./data/conll03_ner.zip
 conda update -y -n ${ANACONDA_ENV} tokenizers
 
 # prepare dataset
-conda run -y -n ${ANACONDA_ENV} python ./data/conll03_ner/conll03_to_json.py
+conda run -n ${ANACONDA_ENV} python ./data/conll03_ner/conll03_to_json.py
 
 # finalize preparation for named entity recognition
-conda run -y -n ${ANACONDA_ENV} python ./data/t5minimize_ner.py ./data/conll03_ner ./data/conll03_ner
+conda run -n ${ANACONDA_ENV} python ./data/t5minimize_ner.py ./data/conll03_ner ./data/conll03_ner
