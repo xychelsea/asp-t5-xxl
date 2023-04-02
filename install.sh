@@ -1,11 +1,15 @@
 #!/bin/bash
 
 ANACONDA_PATH=/opt/anaconda3
+ANACONDA_BIN=${ANACONDA_PATH}/bin/condabin
 ANACONDA_ENV=asp
 
 WORKSPACE=/opt/asp-t5-xxl
 
-export PATH ${ANACONDA_PATH}/bin/condabin:${PATH}
+export PATH ${ANACONDA_BIN}:${PATH}
+
+echo ${PATH}
+exit
 
 # update and install dependencies
 sudo apt update
