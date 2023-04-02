@@ -3,7 +3,9 @@
 ANACONDA_PATH=/opt/anaconda3
 ANACONDA_ENV=asp
 
-export PATH ${ANACONDA_PATH}/bin:${PATH}
+WORKSPACE=/opt/asp-t5-xxl
+
+export PATH ${ANACONDA_PATH}/bin/condabin:${PATH}
 
 # update and install dependencies
 sudo apt update
@@ -16,7 +18,7 @@ sudo apt install -y \
 wget -O ~/Miniforge3-23.1.0-1-Linux-x86_64.sh \
     https://github.com/conda-forge/miniforge/releases/download/23.1.0-1/Miniforge3-23.1.0-1-Linux-x86_64.sh
 chmod +x ~/Miniforge3-23.1.0-1-Linux-x86_64.sh
-/bin/bash ~/Miniforge3-23.1.0-1-Linux-x86_64.sh -b -u -p $ANACONDA_PATH
+/bin/bash ~/Miniforge3-23.1.0-1-Linux-x86_64.sh -b -u -p ${ANACONDA_PATH}
 rm -rvf ~/Miniforge3-23.1.0-1-Linux-x86_64.sh
 
 # prepare our environment
