@@ -127,7 +127,7 @@ def minimize_partition(
     if "conll03" in input_dir:
         input_path = f"{input_dir}/conll03_{name}.json"
 
-    output_path = f"{output_dir}/{name}.t5-small.jsonlines"
+    output_path = f"{output_dir}/{name}.flan-t5-xxl.jsonlines"
 
     print("Minimizing {}".format(input_path))
     processed_dataset = []
