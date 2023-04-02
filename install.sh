@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ANACONDA_PATH=/opt/anaconda3
-ANACONDA_BIN=${ANACONDA_PATH}/bin/condabin
+ANACONDA_BIN=${ANACONDA_PATH}/bin
 ANACONDA_ENV=asp
 
 # add our condabin path now
