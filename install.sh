@@ -4,12 +4,8 @@ ANACONDA_PATH=/opt/anaconda3
 ANACONDA_BIN=${ANACONDA_PATH}/bin/condabin
 ANACONDA_ENV=asp
 
-WORKSPACE=/opt/asp-t5-xxl
-
-export PATH ${ANACONDA_BIN}:${PATH}
-
-echo ${PATH}
-exit
+# add our condabin path now
+export PATH=${ANACONDA_BIN}:${PATH}
 
 # update and install dependencies
 sudo apt update
@@ -44,16 +40,19 @@ export ASP=$PWD
 # initialize conda environment
 conda env create -f environment.yml
 
+# enter our environment
+conda activate ${ANACONDA_ENV}
+
 # download and decompress dataset
 wget -O ./data/conll03_ner.zip https://polybox.ethz.ch/index.php/s/bFf8vJBonIT7sr8/download
 unzip ./data/conll03_ner.zip -d ./data
 rm ./data/conll03_ner.zip
 
 # update tokenizers
-conda update -n $ANACONDA_ENV tokenizers
+conda update -n ${ANACONDA_ENV} tokenizers
 
 # prepare dataset
-conda run -n $ANACONDA_ENV python ./data/conll03_ner/conll03_to_json.py
+conda run -n ${ANACONDA_ENV} python ./data/conll03_ner/conll03_to_json.py
 
 # finalize preparation for named entity recognition
-conda run -n $ANACONDA_ENV python ./data/t5minimize_ner.py ./data/conll03_ner ./data/conll03_ner
+conda run -n ${ANACONDA_ENV} python ./data/t5minimize_ner.py ./data/conll03_ner ./data/conll03_ner
