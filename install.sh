@@ -4,6 +4,8 @@ ANACONDA_PATH=/opt/anaconda3
 ANACONDA_BIN=${ANACONDA_PATH}/bin
 ANACONDA_ENV=asp
 
+ASP_WORKSPACE=/opt/workspace
+
 # add our condabin path now
 export PATH=${ANACONDA_BIN}:${PATH}
 
@@ -28,20 +30,23 @@ echo "conda activate \${ANACONDA_ENV}" >> ~/.bashrc \
 # we need to reload bash profile
 source ~/.bashrc
 
+conda init
+exit
+
 # update conda
-${ANACONDA_BIN}/conda update -n base -c conda-forge conda
+conda update -y -n base -c conda-forge conda
 
 # download our repository
-git clone https://github.com/xychelsea/asp-t5-xxl ~/asp-t5-xxl
-cd ~/asp-t5-xxl
+git clone https://github.com/xychelsea/asp-t5-xxl ${ASP_WORKSPACE}/asp-t5-xxl
+cd ${ASP_WORKSPACE}/asp-t5-xxl
 
 export ASP=$PWD
 
 # initialize conda environment
-${ANACONDA_BIN}/conda env create -f environment.yml
+conda env create -f environment.yml
 
 # enter our environment
-${ANACONDA_BIN}/conda activate ${ANACONDA_ENV}
+conda activate ${ANACONDA_ENV}
 
 # download and decompress dataset
 wget -O ./data/conll03_ner.zip https://polybox.ethz.ch/index.php/s/bFf8vJBonIT7sr8/download
@@ -49,10 +54,10 @@ unzip ./data/conll03_ner.zip -d ./data
 rm ./data/conll03_ner.zip
 
 # update tokenizers
-${ANACONDA_BIN}/conda update -n ${ANACONDA_ENV} tokenizers
+conda update -y -n ${ANACONDA_ENV} tokenizers
 
 # prepare dataset
-${ANACONDA_BIN}/conda run -n ${ANACONDA_ENV} python ./data/conll03_ner/conll03_to_json.py
+conda run -y -n ${ANACONDA_ENV} python ./data/conll03_ner/conll03_to_json.py
 
 # finalize preparation for named entity recognition
-${ANACONDA_BIN}/conda run -n ${ANACONDA_ENV} python ./data/t5minimize_ner.py ./data/conll03_ner ./data/conll03_ner
+conda run -y -n ${ANACONDA_ENV} python ./data/t5minimize_ner.py ./data/conll03_ner ./data/conll03_ner
