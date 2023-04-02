@@ -29,9 +29,7 @@ echo "conda activate \${ANACONDA_ENV}" >> ~/.bashrc \
 
 # we need to reload bash profile
 source ~/.bashrc
-
 conda init
-exit
 
 # update conda
 conda update -y -n base -c conda-forge conda
