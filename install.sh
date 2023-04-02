@@ -51,9 +51,6 @@ wget -O ./data/conll03_ner.zip https://polybox.ethz.ch/index.php/s/bFf8vJBonIT7s
 unzip ./data/conll03_ner.zip -d ./data
 rm ./data/conll03_ner.zip
 
-# update tokenizers
-conda update -y -n ${ANACONDA_ENV} tokenizers
-
 # prepare dataset
 conda run -n ${ANACONDA_ENV} python ./data/conll03_ner/conll03_to_json.py
 
