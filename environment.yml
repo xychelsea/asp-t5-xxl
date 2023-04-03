@@ -16,8 +16,9 @@ dependencies:
   - pytorch-cuda=11.8
   - huggingface_hub
   - huggingface_accelerate
+  - timm
   - transformers
-  - tokenizers
+  - tokenizers=0.13.0
   - pip:
     - truecase
     - pyhocon
