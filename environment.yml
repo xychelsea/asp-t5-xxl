@@ -11,13 +11,13 @@ dependencies:
   - numpy
   - nvidia-apex
   - scipy
-  - python=3.8
+  - python
   - pytorch=2.0.0
   - pytorch-cuda=11.8
   - huggingface_hub
   - huggingface_accelerate
-  - transformers=4.27.4
-  - tokenizers=0.13.2
+  - transformers
+  - tokenizers
   - pip:
     - truecase
     - pyhocon
