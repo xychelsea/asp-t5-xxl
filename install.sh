@@ -46,8 +46,8 @@ conda env create -f environment.yml
 # enter our environment
 conda activate ${ANACONDA_ENV}
 
-# update tokenizers
-conda update tokenizers
+# update transformers
+conda update transformers
 
 # download and decompress dataset
 wget -O ./data/conll03_ner.zip https://polybox.ethz.ch/index.php/s/bFf8vJBonIT7sr8/download
