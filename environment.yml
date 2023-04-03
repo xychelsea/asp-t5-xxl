@@ -11,7 +11,7 @@ dependencies:
   - numpy
   - scipy
   - python
-  - pytorch
+  - pytorch=2.0.0
   - pytorch-cuda
   - huggingface_hub
   - huggingface_accelerate
