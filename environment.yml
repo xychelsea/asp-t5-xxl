@@ -9,7 +9,6 @@ dependencies:
   - pip
   - tqdm
   - numpy
-  - nvidia-apex
   - scipy
   - python
   - pytorch=2.0.0
@@ -17,7 +16,7 @@ dependencies:
   - huggingface_hub
   - huggingface_accelerate
   - timm
-  - transformers
+  - transformers=4.27.4
   - tokenizers=0.13.0
   - pip:
     - truecase
